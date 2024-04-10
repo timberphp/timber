@@ -5,7 +5,6 @@ import { Textarea } from './components/ui/textarea';
 import { invoke } from '@tauri-apps/api/core';
 import { makeCommand } from './lib/code-runner';
 
-const phpBinary = 'php';
 const code = ref(`echo "hello world";`);
 const directory = ref('/Users/daudau/Code/lab');
 const output = ref('');

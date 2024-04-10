@@ -1,5 +1,5 @@
 import { resolveResource } from "@tauri-apps/api/path";
-import { Project, ProjectType } from "./types";
+import { ProjectType } from "./types";
 import { encode } from 'js-base64';
 
 export async function makeCommand(projectPath: string, projectType: ProjectType, phpCode: string, shouldEncode: boolean = true) {
