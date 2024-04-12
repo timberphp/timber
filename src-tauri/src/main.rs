@@ -3,7 +3,6 @@
 
 use std::process::Command;
 
-// Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
 fn greet(name: &str) -> String {
     format!("Hi {} from Rust!", name)
@@ -12,13 +11,9 @@ fn greet(name: &str) -> String {
 #[tauri::command]
 fn execute_command(command: &str) -> Result<String, String> {
     let output = if cfg!(target_os = "windows") {
-        Command::new("cmd")
-            .args(&["/C", command])
-            .output()
+        Command::new("cmd").args(&["/C", command]).output()
     } else {
-        Command::new("sh")
-            .args(&["-c", command])
-            .output()
+        Command::new("sh").args(&["-c", command]).output()
     };
 
     match output {
@@ -35,9 +30,9 @@ fn execute_command(command: &str) -> Result<String, String> {
     }
 }
 
-
 fn main() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_dialog::init())
         .invoke_handler(tauri::generate_handler![greet, execute_command])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
