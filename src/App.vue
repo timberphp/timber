@@ -17,7 +17,6 @@ async function submit() {
   try {
     const result = await invoke('execute_command', {command}) as string;
     output.value = result;
-    console.log('output', result)
   } catch (e) {
     if (typeof e === 'string') {
       output.value = e;
@@ -34,7 +33,6 @@ async function selectFolder() {
     directory: true,
     multiple: false,
   })
-  console.log('selected', selected)
   if (selected) {
     directory.value = selected;
   }
