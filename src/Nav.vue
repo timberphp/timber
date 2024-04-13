@@ -4,7 +4,7 @@ import Button from './components/ui/button/Button.vue';
 </script>
 
 <template>
-    <div class="group h-screen max-w-12 bg-gray-200 flex flex-col gap-4 py-2">
+    <div class="fixed top-0 left-0 h-screen w-12 bg-gray-200 flex flex-col gap-4 py-2">
         <nav class="flex flex-col items-center justify-center gap-2">
             <!-- open folder -->
             <Button variant="link" size="icon">
